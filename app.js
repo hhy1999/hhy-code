@@ -4,12 +4,25 @@ const express = require('express')
 const app = express()
 const joi = require('@hapi/joi')
 
+// 导入接收JSON数据中间件
+const bodyParser = require('body-parser')
+
+
+
 // 导入并配置 cors 中间件
 const cors = require('cors')
 app.use(cors())
 
 // 配置解析表单数据的中间件，注意：这个中间件，只能解析 application/x-www-form-urlencoded 格式的表单数据
-app.use(express.urlencoded({ extended: false }))
+// app.use(express.urlencoded({ extended: false }))
+
+//读取json配置
+app.use(bodyParser.json({ limit: '1mb' }))
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}))
+
 
 // 托管静态资源文件
 app.use('/uploads', express.static('./uploads'))
