@@ -12,7 +12,7 @@ module.exports = {
     production : {
       user : 'root',
       host : '81.71.15.170',
-      ref  : 'master',
+      ref  : 'origin/master',
       repo : 'git@github.com:hhy1999/hhy-code.git',
       path : '/usr/local/project',
       'pre-deploy-local': '',
